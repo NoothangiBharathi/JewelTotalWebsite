@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/22eef0dda9.js" crossorigin="anonymous"></script>
+    <title>Jewelry Shop</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        .Navbar1 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f8f8f8;
+            padding: 10px;
+        }
+        .Navbar1 ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        .Navbar1 li {
+            padding: 10px;
+            position: relative;
+        }
+        .Navbar1 .drop {
+            display: none;
+            position: absolute;
+            background-color: #000;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            padding: 12px 16px;
+            z-index: 1;
+        }
+        .Navbar1 li:hover .drop {
+            display: block;
+        }
+        .Navbar1 a {
+            text-decoration: none;
+            color: #000;
+        }
+        .Navbar1 .drop a {
+            color: #fff;
+            display: block;
+            padding: 8px 0;
+        }
+        .Navbar1 .drop a:hover {
+            background-color: #575757;
+        }
+        .logo {
+            height: 40px;
+        }
+        .logo a {
+            text-decoration: none;
+            color: #000;
+            font-size: 35px;
+            font-weight: bold;
+            font-style: italic;
+        }
+        .Navbar2 {
+            display: flex;
+            align-items: center;
+        }
+        .search, .cart {
+            text-decoration: none;
+            color: #000;
+            font-size: 20px;
+            margin-left: 15px;
+            position: relative;
+        }
+        .count {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: #ccc;
+            color: #fff;
+            border-radius: 50%;
+            padding: 2px 6px;
+            font-size: 12px;
+        }
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+        }
+        .hero {
+            
+            justify-content: space-between;
+            align-items: center;
+        }
+        .hero-text {
+            text-align: center;
+            margin-top: 10%;
+        }
+        .hero-text h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .hero-text p {
+            font-size: 1.2rem;
+            line-height: 1.5;
+        }
+        .hero-text .button {
+            display: inline-block;
+            border-radius: 10px;
+            padding: 1% 3%;
+            color: #f5f5f5;
+            background-color: black;
+            text-decoration: none;
+        }
+        .images {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+        .images img {
+            border-radius: 2%;
+            
+            height: auto;
+        }
+        .image1 {
+            margin-left: 6%;
+            margin-top: -70%;
+            width: 80%;
+            
+        }
+        .images .image2 {
+            position: absolute; 
+            margin-top: -120px;         
+            width: 24%;
+            margin-left: 8%;
+            
+        }
+        .image3 {
+            width: 100%;
+            margin-left: 15%;
+            margin-top: 16%;
+            
+        }
+        .image4 {
+           
+            margin-left: 15%;
+            margin-top: -30%;
+            
+        }
+        .badge {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #fff;
+            border: 1px solid #333;
+            position: absolute;
+            top: 96%;
+            left: 80%;
+            transform: translate(-50%, -50%);
+        }
+        .badge span {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        .hed {
+            margin-top: 10%;
+            text-align: center;
+        }
+        .shop {
+            margin-left: 5%;
+            display: flex;
+            margin-top: 5%;
+        }
+        .shop1 {
+            margin-left: 5%;
+            display: flex;
+            margin-top: 0;
+        }
+        
+        .shop1 h1 {
+            margin-top: -10%;
+            margin-left: 7%;
+        }
+        .shop h1 {
+            margin-top: -10%;
+            margin-left: 7%;
+        }
+        img {
+            border-radius: 10px;
+            height: 80%;
+            width: 80%;
+        }
+        .img:hover {
+    animation: fadeOut 1s ease-in-out;
+}
+        #shop {
+            display: flex;
+        }
+        h5 {
+            margin-left: 32%;
+        }
+        .product-overflow {
+            margin-top: 10%;
+        }
+        .one {
+            background-image: no-repeat;
+            background-size: cover;
+            margin-left: 8%;
+            width: 50%;
+            height: 800px;
+            border-radius: 3%;
+            animation: fadeIn 3s forwards;
+            background-image: url(https://cdn.prod.website-files.com/63ef1dc23ff8fd0a899d86bb/63f05d1aa2038a5d8c58c0b3_hero-02.jpg);
+        }
+        .one h2{
+            padding-top: 40%;
+            padding-left: 7%;
+            padding-right: 6%;
+            padding-bottom: 30%;
+            text-align: center;
+            color: #f5f5f5;
+            font-size: 500%;
+        }
+              
+        .prod-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        
+        .two {
+            width: 55%;
+            height: 800px;
+            overflow: hidden;
+            position: relative;
+        }
+        .list {
+            position: absolute;
+            width: 100%;
+            animation: scroll 10s linear infinite;
+        }
+        .item {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+            flex-direction: column;
+        }
+        .image-wrap img {
+            width: 350px;
+            height: 450px;
+            margin-bottom: 0px;
+        }
+        
+        .info {
+            text-align: left;
+        }
+        .prod-price {
+            display: flex;
+            align-items: left;
+            justify-content: left;
+        }
+        .price {
+            margin-right: 10px;
+        }
+        .price-compare {
+            text-decoration: line-through;
+            margin-right: 10px;
+        }
+        .icon img {
+            width: 20px;
+            height: 20px;
+        }
+        @keyframes scroll {
+            0% { top: 0; }
+            100% { top: -1600px; } /* Adjust this value based on the total height of your list */
+        }
+        .rating {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 130vh;
+            overflow: hidden;
+            position: relative;
+            margin-top: 150px;
+        }
+
+        .feed {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            text-align: center;
+            width: 50%;
+            height: 100%;
+            font-size: 150%;
+            
+            
+        }
+
+        .feed p {
+            margin: 10px 0;
+            opacity: 0;
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            animation: slide 15s linear infinite;
+        }
+
+        .feed p:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .feed p:nth-child(2) {
+            animation-delay: 5s;
+        }
+
+        .feed p:nth-child(3) {
+            animation-delay: 10s;
+        }
+
+        @keyframes slide {
+            0% {
+                opacity: 0;
+                transform: translateX(100%);
+            }
+            10% {
+                opacity: 1;
+                transform: translateX(0%);
+            }
+            30% {
+                opacity: 1;
+                transform: translateX(0%);
+            }
+            40% {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+            100% {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+        }
+        .banner{
+            margin-top: -450px;
+            overflow: hidden;
+            background-image: url("https://assets.website-files.com/63ef1dc23ff8fd0a899d86bb/63f2f552b222cb58d92db0d4_offer-01.jpg");
+            background-position: 50% 50%;
+            background-size: cover;   
+            padding: 14.5% 14.5%; 
+            text-align: center;
+            font-size: 50PX;
+        }
+        .offer {
+            background-color: black;
+            color: white;
+            padding: 10px;
+            position: relative;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .offer-content {
+            display: inline-block;
+            animation: moveLeft 10s linear infinite;
+        }
+
+        @keyframes moveLeft {
+            0% {
+                transform: translateX(1%);
+            }
+            100% {
+                transform: translateX(-10%);
+            }
+        }
+        .image-slider {
+            margin-top: 10%;
+            padding: 80px;
+            position: relative;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .image-slider h1{
+            text-align: center;
+            margin-top: -6%;
+        }
+
+        .image-slider-content {
+            display: inline-block;
+            animation: moveLeft 50s linear infinite;
+        }
+
+        .image-slider-content img {
+            width: 300px;
+            height: 300px;
+            margin: 0 10px;
+            border-radius: 20px; /* Rounded-square effect */
+        }
+
+        @keyframes moveLeft {
+            0% {
+                transform: translateX(0%);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+
+    body{
+  line-height: 1.5;
+  font-family: 'Poppins', sans-serif;
+}
+
+.footer-item-2 a,.footer-item-3 a,.footer-item a{
+  text-decoration: none;
+  color: black;
+
+}
+.footer-item-2 a:hover,.footer-item-3 a:hover,.footer-item a:hover{
+  text-decoration: underline;
+}
+.container1{
+   display: flex;
+  
+  justify-content: space-evenly;
+  
+  background-color: #f8f6f6;
+  padding: 50px 0 50px 0;
+}
+.col-1{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+form{
+  background-color: transparent;
+  border: 1px solid black;
+  justify-content: space-between;
+  gap: 30px;
+  display: flex;
+  outline: none;
+  
+}
+form input{
+  /* padding: 15px; */
+   border: none;
+  outline:none;
+  background: #f8f6f6;
+  padding: 10px 20px 10px 20px;
+}
+form .subscribe-button{
+  background-color: black;
+  color: white;
+  border: none;
+  outline: none;
+  
+}
+.footer-item{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.footer-item-2{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.top{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.one1{
+  padding-left: 35px;
+}
+
+span{
+  padding-left: 20px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  line-height: 30px;
+}
+
+.bottom{
+  font-size: 30px;
+  display: flex;
+  flex-direction: row;
+  gap: 35px;
+  margin-top: 20px;
+}
+
+       
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+          <a href="#">Jewel</a>
+        </div>
+        <ul>
+          <li><a href="#home.html">Home</a></li>
+          <li><a href="#AboutUs.html">About Us</a></li>
+          <li><a href="#Shop.html">Shop</a></li>
+          <li>
+            <a href="#Pages">Pages <span class="dropdown-icon">▼</span></a>
+            <div class="dropdown-content">
+              <a href="#home2.html">Home 2</a>
+              <a href="#AboutUs.html">About Us</a>
+              <a href="#Blog.html">Blog</a>
+              <a href="#FAQ's.html">FAQs</a>
+              <a href="#ContactUs.html">Contact Us</a>
+              <a href="#PrivacyPolicy.html">Privacy Policy</a>
+            </div>
+          </li>
+        </ul>
+        <div class="nav-icons">
+          <a href="#" class="search-icon">&#128269;</a>
+          <a href="#" class="cart-icon">
+            &#128722;<span class="cart-count">0</span>
+          </a>
+        </div>
+      </div>
+
+    <div class="container">
+        <div class="hero">
+            <div class="hero-text">
+                <p>Buy More & Save More</p>
+                <h1>Best Jewelry<br> Under One Roof</h1>
+                <a href="#" class="button">Shop Now</a>
+            </div>
+            <div class="images">
+                <img src="https://cdn.prod.website-files.com/63ef1dc23ff8fd0a899d86bb/63f05d1ab5f34f1a3011dba0_hero-01.jpg" alt="jewelry" class="image1">
+                    <img src="https://cdn.prod.website-files.com/63ef1dc23ff8fd0a899d86bb/63f05d1aa2038a5d8c58c0b3_hero-02.jpg" alt="jewelry" class="image2">
+                    <img src="https://cdn.prod.website-files.com/63ef1dc23ff8fd0a899d86bb/63f05d19731066492fbdf10b_hero-03.jpg" alt="jewelry" class="image3">
+                    <img src="https://cdn.prod.website-files.com/63ef1dc23ff8fd0a899d86bb/63f05d19f93eda3b4e20aeb0_hero-04.jpg" alt="jewelry" class="image4">
+            </div>
+        </div>
+        <div class="badge">
+            <span>100%</span>
+        </div>
+    </div>
+    <div class="hed"><h1>Shop By Category</h1></div>
+    <div class="shop">
+        <div id="shop5">
+            <img src="https://cdn.prod.website-files.com/63ef4af7c6e3f3b42e1433a8/63f6fadc8b9da1cef8756da3_cat-01.jpg" alt="jewelry" class="image5">
+            <div id="shop">
+            <h3>Necklaces</h3>
+            <h5>Explore></h5>
+            </div>
+        </div>
+        <div id="shop5">
+            <img src="https://cdn.prod.website-files.com/63ef4af7c6e3f3b42e1433a8/63f6fcdd5cb0bf102089c2e1_cat-02.jpg" alt="jewelry" class="image5">
+            <div id="shop">
+            <h3>Earrings</h3>
+            <h5>Explore></h5>
+            </div>
+        </div>
+        <div id="shop5">
+            <img src="https://cdn.prod.website-files.com/63ef4af7c6e3f3b42e1433a8/63f609e2da820b46b37a3d63_cat-03.jpg" alt="jewelry" class="image5">
+            <div id="shop">
+            <h3>Bracelets</h3>
+            <h5>Explore></h5>
+            </div>
+        </div>
+        <div id="shop5">
+            <img src="https://cdn.prod.website-files.com/63ef4af7c6e3f3b42e1433a8/63f6faf6c40da512b282bf2e_cat-04.jpg" alt="jewelry" class="image5">
+            <div id="shop">
+            <h3>Rings</h3>
+            <h5>Explore></h5>
+            </div>
+        </div>
+    </div> 
+
+    <div class="product-overflow">
+        <section class="prod-container">
+                <div class="one"> 
+                    <h2>The Perfect Jewelry To Love Ones</h2>
+                    
+                </div>
+                <div class="two">
+                    <div class="list">
+                        <div class="item">  
+                            <div class="image-wrap">
+                                <img src="https://cdn.prod.website-files.com/63ef4af7c6e3f3b42e1433a8/63f0a069b5f34f7251159a83_pr-01.jpg" class="product-image">
+                            </div>
+                            <div class="info">
+                                <h3>Copper Gold Plated</h3>
+                                    <div class="prod-price">
+                                        <div class="price">$&nbsp;79.50&nbsp;USD</div>
+                                        <div class="price-compare">$&nbsp;82.85&nbsp;USD</div>
+                                        <div class="icon">
+                                            <img src="https://cdn.prod.website-files.com/63ef1dc23ff8fd0a899d86bb/63ef28c67768f1cafcfc91fd_left-arrow.svg">
+                                        </div>
+                                    </div>
+                            </div> 
+                       
+                            <div class="image-wrap">
+                                <img src="https://cdn.prod.website-files.com/63ef4af7c6e3f3b42e1433a8/63f09efab50e55553fe43eaf_pr-04.jpg" class="product-image">
+                            </div>
+                            <div class="info">
+                                <h3>Zircon Gold Plated Ring</h3>
+                                    <div class="prod-price">
+                                        <div class="price">$&nbsp;79.50&nbsp;USD</div>
+                                        <div class="price-compare">$&nbsp;82.85&nbsp;USD</div>
+                                        <div class="icon">
+                                            <img src="https://cdn.prod.website-files.com/63ef1dc23ff8fd0a899d86bb/63ef28c67768f1cafcfc91fd_left-arrow.svg">
+                                        </div>
+                                    </div>
+                            </div> 
+                       
+                            <div class="image-wrap">
+                                <img src="https://cdn.prod.website-files.com/63ef4af7c6e3f3b42e1433a8/63f0868ce2860c7c4245832b_pr-12-p-500.jpg" class="product-image">
+                            </div>
+                            <div class="info">
+                                <h3>Diamond Brooch</h3>
+                                    <div class="prod-price">
+                                        <div class="price">$&nbsp;79.50&nbsp;USD</div>
+                                        <div class="price-compare">$&nbsp;82.85&nbsp;USD</div>
+                                        <div class="icon">
+                                            <img src="https://cdn.prod.website-files.com/63ef1dc23ff8fd0a899d86bb/63ef28c67768f1cafcfc91fd_left-arrow.svg">
+                                        </div>
+                                    </div>
+                            </div>
+                            
+                            <div class="image-wrap">
+                                <img src="https://cdn.prod.website-files.com/63ef4af7c6e3f3b42e1433a8/63f09efab50e55553fe43eaf_pr-04.jpg" class="product-image">
+                            </div>
+                            <div class="info">
+                                <h3>Zircon Gold Plated Ring</h3>
+                                    <div class="prod-price">
+                                        <div class="price">$&nbsp;79.50&nbsp;USD</div>
+                                        <div class="price-compare">$&nbsp;82.85&nbsp;USD</div>
+                                        <div class="icon">
+                                            <img src="https://cdn.prod.website-files.com/63ef1dc23ff8fd0a899d86bb/63ef28c67768f1cafcfc91fd_left-arrow.svg">
+                                        </div>
+                                    </div>
+                            </div> 
+                       
+                        </div>
+                    </div>
+                </div>
+            </section>
+    </div>
+    <div class="hed"><h1>Recent Products</h1></div>
+    <div class="shop1">
+        <div id="shop5">
+            <img src="https://cdn.prod.website-files.com/63ef4af7c6e3f3b42e1433a8/63f09fc5f93eda67a4245130_pr-02-p-500.jpg" alt="jewelry" class="image5">
+            <div class="info">
+                <h3>Gold Hoop Earrings</h3>
+                <div class="prod-price">
+                    <div class="price">$&nbsp;49.50&nbsp;USD</div>
+                    <div class="price-compare">$&nbsp;60.85&nbsp;USD</div>
+                    <div class="icon">
+                        <img src="https://cdn.prod.website-files.com/63ef1dc23ff8fd0a899d86bb/63ef28c67768f1cafcfc91fd_left-arrow.svg">
+                    </div>
+                 </div>
+            </div>
+        </div>
+        
+        <div id="shop5">
+            
+            <img src="https://cdn.prod.website-files.com/63ef4af7c6e3f3b42e1433a8/63f09f61fb9f068c448d5c6e_pr-03-p-500.jpg" alt="jewelry" class="image5">
+            <div class="info">
+                <h3>Gold Hoop Bracelet</h3>
+                <div class="prod-price">
+                    <div class="price">$&nbsp;50.74&nbsp;USD</div>
+                    <div class="price-compare">$&nbsp;60.85&nbsp;USD</div>
+                    <div class="icon">
+                        <img src="https://cdn.prod.website-files.com/63ef1dc23ff8fd0a899d86bb/63ef28c67768f1cafcfc91fd_left-arrow.svg">
+                    </div>
+                 </div>
+            </div>
+        </div>
+        <div id="shop5">
+            <img src="https://cdn.prod.website-files.com/63ef4af7c6e3f3b42e1433a8/63f09e5669cfc0b88e2ed030_pr-06-p-500.jpg" alt="jewelry" class="image5">
+            <div class="info">
+                <h3>Gold Hoop Brooch</h3>
+                <div class="prod-price">
+                    <div class="price">$&nbsp;25.50&nbsp;USD</div>
+                    <div class="price-compare">$&nbsp;35.85&nbsp;USD</div>
+                    <div class="icon">
+                        <img src="https://cdn.prod.website-files.com/63ef1dc23ff8fd0a899d86bb/63ef28c67768f1cafcfc91fd_left-arrow.svg">
+                    </div>
+                 </div>
+            </div>
+        </div>
+        <div id="shop5">
+            <img src="https://cdn.prod.website-files.com/63ef4af7c6e3f3b42e1433a8/63f09ec90314aac5be1b044d_pr-05-p-500.jpg" alt="jewelry" class="image5">
+            <div class="info">
+                <h3>Gold Hoop Pendant</h3>
+                <div class="prod-price">
+                    <div class="price">$&nbsp;77.50&nbsp;USD</div>
+                    <div class="price-compare">$&nbsp;68.85&nbsp;USD</div>
+                    <div class="icon">
+                        <img src="https://cdn.prod.website-files.com/63ef1dc23ff8fd0a899d86bb/63ef28c67768f1cafcfc91fd_left-arrow.svg">
+                    </div>
+                 </div>
+            </div>
+        </div>
+    </div>
+    <div class="rating">
+        <div class="feed">
+            <p>★★★★★<br>Started several mistakes but joy says the painful removal reached the end. State burst think end are its. Arrived off she elderly beloved him affixed noisier yet. Course regard to up he hardly. View four has said do men saw find dear shy? Talent men wicket add garden.
+                 <br><br>Louis Ferguson</p>
+            
+           <p>★★★★★<br>Son agreed to others Exeter period myself few yet nature. Mention Mr manners opinion if garrets enabled. To occasional dissimilar impossible sentiments. Do fortune account written prepare invited no passage. Garrets use ten, you the weather venture friends.
+                <br><br> Jacqueline Miller</p>
+            
+            <p>★★★★★<br>Affronting imprudence does everything. Sex lasted dinner wanted indeed wished outlaw. Far advanced settling say finished raillery. Offered chiefly farther of my no colonel shyness. Such on help ye some door if in. Laughter proposal laughing any son law consider.
+                <br><br>Frances Guerrero</p>
+            
+         </div>   
+    </div>
+
+    <div class="banner">
+        <h2>Best Jewelry For You</h2>
+    </div>
+    <div class="offer">
+        <div class="offer-content">
+            Today’s Offer: Buy any item & get a 10% Instant Discount. Buy Now
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            Today’s Offer: Buy any item & get a 10% Instant Discount. Buy Now
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            Today’s Offer: Buy any item & get a 10% Instant Discount. Buy Now
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            Today’s Offer: Buy any item & get a 10% Instant Discount. Buy Now
+        </div>
+    </div>
+    <div class="image-slider">
+        <h1>Instagram</h1>
+        <div class="image-slider-content">
+            <img src="https://cdn.prod.website-files.com/63ef1dc23ff8fd0a899d86bb/63f3084c222b9ba63eec2619_insta-01.jpg" alt="Image 1">
+            &nbsp;&nbsp;
+            <img src="https://cdn.prod.website-files.com/63ef1dc23ff8fd0a899d86bb/63f308b6542396495cbdd4e2_insta-02.jpg" alt="Image 2">
+            &nbsp;&nbsp;
+            <img src="https://cdn.prod.website-files.com/63ef1dc23ff8fd0a899d86bb/63f308b648a58b1b62c4595e_insta-03.jpg" alt="Image 3">
+            &nbsp;&nbsp;
+            <img src="https://cdn.prod.website-files.com/63ef1dc23ff8fd0a899d86bb/63f308b6dd42ad72977389f6_insta-04.jpg" alt="Image 4">
+            &nbsp;&nbsp;
+            <img src="https://cdn.prod.website-files.com/63ef1dc23ff8fd0a899d86bb/63f33baa85872a6deca5b3a8_insta-05.jpg" alt="Image 5">
+            &nbsp;&nbsp;
+            <img src="https://cdn.prod.website-files.com/63ef1dc23ff8fd0a899d86bb/63f33babdff26473458bc295_insta-06.jpg" alt="Image 6">
+            &nbsp;&nbsp;
+            <img src="https://cdn.prod.website-files.com/63ef1dc23ff8fd0a899d86bb/63f33baab366b73c48587d1d_insta-07.jpg" alt="Image 1">
+            &nbsp;&nbsp;
+            <img src="https://cdn.prod.website-files.com/63ef1dc23ff8fd0a899d86bb/63f308b8cdf34e27d9bfc455_insta-08.jpg" alt="Image 2">
+            &nbsp;&nbsp;
+            <img src="https://cdn.prod.website-files.com/63ef1dc23ff8fd0a899d86bb/63f310f849b46cc99fcb29e5_insta-09.jpg" alt="Image 3">
+            &nbsp;&nbsp;
+            <img src="https://cdn.prod.website-files.com/63ef1dc23ff8fd0a899d86bb/63f311c8950c485e36fba30f_insta-10.jpg" alt="Image 4">
+            &nbsp;&nbsp;
+            <img src="https://cdn.prod.website-files.com/63ef1dc23ff8fd0a899d86bb/63f3084c222b9ba63eec2619_insta-01.jpg" alt="Image 5">
+            &nbsp;&nbsp;
+            <img src="https://cdn.prod.website-files.com/63ef1dc23ff8fd0a899d86bb/63f33baa85872a6deca5b3a8_insta-05.jpg" alt="Image 6">
+            &nbsp;&nbsp;
+            
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="container1">
+            
+                <div class="col-1">
+                    <h2>Jewel</h2>
+                    <p>He moonlights difficult-engrossed,<br>
+                         sportsmen. Interested has all Devonshire<br>
+                          difficulty gay assistance
+                          joy. Unaffected at ye<br>
+                           of compliment alteration to.</p>
+                    <form action="">
+                    <input class="subscribe-input w-input" maxlength="256" name="Email" data-name="Email" placeholder="Enter Your Email" type="email" id="Email-3" required="">
+                    <input type="submit" data-wait="Please wait..." class="subscribe-button w-button" value="Subscribe">
+                </form>
+                <div class="small-text">Receive the latest updates and news</div>
+                </div>
+            
+            <div class="footer-item">
+                <h2 class="footer-title">Useful Links</h2>
+                <a href="#" class="footer-link">Home</a>
+                <a href="#" class="footer-link ">Home 2</a>
+                <a href="#" aria-current="page" class="footer-link w--current">About Us</a>
+                <a href="#" class="footer-link">Shop</a>
+                <a href="#" class="footer-link">Blog</a>
+                <a href="#" class="footer-link">Contact Us</a>
+                <a href="#" class="footer-link">FAQs</a>
+                <a href="#" class="footer-link">Privacy Policy</a>
+            </div>
+            <div class="footer-item-2">
+                <h2 class="footer-title">Utility Pages</h2>
+                <a href="#" class="footer-link">Style Guide</a>
+                <a href="#" class="footer-link">Instructions</a>
+                <a href="#" class="footer-link">Licenses</a>
+                <a href="#" class="footer-link">Changelog</a>
+                <a href="#" class="footer-link">Under Maintenance</a>
+                <a href="#" class="footer-link">Error 404</a>
+                <a href="#" class="footer-link">Password Protected</a>
+            </div>
+           <div class="footer-item-3">
+            <div class="top">
+                <h2>Contact Us</h2>
+                <i class="fa-solid fa-location-dot"><span>119 Tanglewood Lane Gulfport,   <br>   <span class="one1">MS 39503</span></span></i>
+                <i class="fa-solid fa-phone"><span><a href="#">+1 2586 5892</a></span></i>
+                <i class="fa-regular fa-envelope"><span><a href="#">hello@example.com</a></span></i>
+            </div>
+            
+            <div class="buttom">
+                
+                <h2>Follow Us On</h2>
+                <div class="bottom">
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-twitter"></i>
+            </div>
+            </div>
+           </div>
+            
+        </div>
+        </div>
+    
+
+
+</body>
+</html>
